@@ -1,0 +1,22 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Hero from "@components/home/Hero.svelte";
+import Foods from "@components/home/Foods.svelte";
+import { useSanityClient } from "astro-sanity";
+
+const query = `*[_type == "product"]{
+ title,
+  tags,
+  "price":defaultProductVariant.price,
+  "image":defaultProductVariant.images[0]{
+   "asset": asset->,
+  },
+  "summary":blurb
+}`;
+const data = await useSanityClient().fetch(query);
+---
+
+<Layout title="Home">
+  <Hero />
+  <Foods data={data} />
+</Layout>
