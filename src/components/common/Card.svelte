@@ -2,7 +2,7 @@
 	import type { FoodTypes } from '@components/home/types';
     import SanityImage from "@components/common/SanityImage/index.svelte";
     export let food:FoodTypes;
-    console.log(food)
+    console.log('I love it')
 </script>
 <div class='p-4 flex flex-col border rounded-md'>
     <div class='w-full aspect-video '>
@@ -22,5 +22,5 @@
     </div>
     <p class="text-xl mb-2">{food.title}</p>
     <p class="text-md text-gray-500">{food.summary.en}</p>
-    <button class='mt-4 hover:border-l-4 transition-all  border-lime-500 max-w-max px-8 ml-auto py-1 rounded-full  bg-blue-500 text-white'>BUY</button>
+    <button on:click={()=>alert('yes')} class='mt-4 hover:border-l-4 transition-all  border-lime-500 max-w-max px-8 ml-auto py-1 rounded-full  bg-blue-500 text-white'>BUY</button>
 </div>

@@ -11,13 +11,17 @@ import tailwind from "@astrojs/tailwind";
 import sanity from "astro-sanity";
 
 // https://astro.build/config
+import cloudflare from "@astrojs/cloudflare";
+
+// https://astro.build/config
+import node from "@astrojs/node";
+
+// https://astro.build/config
 export default defineConfig({
   integrations: [
     svelte(),
     tailwind(),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
+    image(),
     sanity({
       projectId: "h1ol39z4",
       dataset: "production",
@@ -25,5 +29,9 @@ export default defineConfig({
       useCdn: true,
     }),
   ],
+
   output: "server",
+  adapter: node({
+    mode: "standalone",
+  }),
 });

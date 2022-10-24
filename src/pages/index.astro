@@ -18,5 +18,5 @@ const data = await useSanityClient().fetch(query);
 
 <Layout title="Home">
   <Hero />
-  <Foods data={data} />
+  <Foods data={data} client:load/>
 </Layout>
